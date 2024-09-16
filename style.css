@@ -1,0 +1,47 @@
+@property --w_raw {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 100vw;
+  }
+
+  @property --h_raw {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 100vh;
+  }
+
+  :root {
+    --w: tan(atan2(var(--w_raw), 1px));
+    --h: tan(atan2(var(--h_raw), 1px));
+  }
+
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: system-ui, sans-serif;
+  }
+  .indicator::before {
+    content: counter(w) 'x' counter(h);
+    counter-reset: h var(--h) w var(--w);
+    font-size: 3em;
+    font-weight: 900;
+  }
+
+  .powered-by a {
+    color: unset;
+    text-decoration: none;
+    color: rgb(219, 219, 36);
+    font-weight: 900;
+  }

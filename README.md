@@ -1,0 +1,1 @@
+  Inspired by https://dev.to/leapcell/get-screen-size-in-pure-css-3kna# screen-size-display
